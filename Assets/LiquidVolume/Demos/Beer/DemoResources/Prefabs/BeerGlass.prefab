@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2439870343423617778}
   - component: {fileID: 7931131481789485676}
   - component: {fileID: 1022114310294355265}
+  - component: {fileID: 6702653909569005846}
   m_Layer: 0
   m_Name: BeerGlass
   m_TagString: Untagged
@@ -195,3 +196,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spill: {fileID: 1000010388951712, guid: 11af8d610944544ed94cd2e0a53787c4, type: 3}
+--- !u!65 &6702653909569005846
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3012600603198567305}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.021267049, y: 0.043113932, z: 0.021267049}
+  m_Center: {x: 0, y: 9.313226e-10, z: 0}
