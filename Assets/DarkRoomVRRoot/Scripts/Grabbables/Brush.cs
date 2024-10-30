@@ -14,7 +14,7 @@ public class Brush : MonoBehaviour
     {
         if (!isGrabbed) return;
         if (!doOnce) return;
-        if (Vector3.Distance(bowl.position, transform.position) > 0.3f) return;
+        if (Vector3.Distance(bowl.position, transform.position) > 0.1f) return;
 
         paintBrushRenderer.materials[0].color = paintColor;
         doOnce = false;
