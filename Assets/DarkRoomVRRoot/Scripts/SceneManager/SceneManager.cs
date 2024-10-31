@@ -9,18 +9,6 @@ public class CustomSceneManager : MonoBehaviour
     public string sceneName;
 
     // Start is called before the first frame update
-    void Start()
-    {
-        // Start the coroutine to load the scene after a delay
-        StartCoroutine(LoadSceneWithDelay("DarkRoomScene", 10f));
-    }
-
-    private IEnumerator LoadSceneWithDelay(string sceneName, float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        SceneManager.LoadScene(sceneName);
-    }
-
     public void LoadScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
