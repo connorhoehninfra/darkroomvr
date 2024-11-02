@@ -73,3 +73,6 @@ crashlytics-build.properties
 .vscode
 .utmp
 .DS_Store
+.vscode
+.vscode/*
+.vscode/settings.json
