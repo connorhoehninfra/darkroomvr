@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Oculus.Interaction;
+using DG.Tweening;
 
 public class Frame : MonoBehaviour
 {
 
-    [SerializeField] private Transform uvBox;
+    [SerializeField] private Transform uvBoxAnimationTrigger;
+    [SerializeField] private Transform uvBoxTarget;
     [SerializeField] private Grabbable grabbable;
     [SerializeField] private Rigidbody rigidBody;
     [SerializeField] private Collider myCollider;
@@ -22,15 +24,15 @@ public class Frame : MonoBehaviour
     {
         if (!isGrabbed) return;
         if (!doOnce) return;
-        if (Vector3.Distance(uvBox.position, transform.position) > threshold) return;
+        if (Vector3.Distance(uvBoxAnimationTrigger.position, transform.position) > threshold) return;
 
         isBeingProcessed = true;
         doOnce = false;
         grabbable.enabled = false;
         rigidBody.isKinematic = true;
         myCollider.enabled = false;
-        //TODO: Tween animation
-
+        transform.DOMove(uvBoxTarget.position, 2f);
+        transform.DORotate(uvBoxTarget.eulerAngles, 2f);
     }
 
     public void UserGrabbedBox(bool value)

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Oculus.Interaction;
@@ -11,8 +12,8 @@ public class UVBox : MonoBehaviour
 
     private void Start()
     {
-        // uvLightMaterial.SetColor("_EmissionColor", Color.black);
         uvLightMaterial.DisableKeyword("_EMISSION");
+        uvLightMaterial.globalIlluminationFlags = MaterialGlobalIlluminationFlags.EmissiveIsBlack;
         pointLight.SetActive(false);
     }
 
@@ -23,12 +24,22 @@ public class UVBox : MonoBehaviour
     {
         if (lightisOn) return;
 
-        // uvLightMaterial.SetColor("_EmissionColor", Color.blue);
-        uvLightMaterial.EnableKeyword("_EMISSION");
-        pointLight.SetActive(true);
+
         lightisOn = true;
+        StartCoroutine(DoWithDelay(() =>
+        {
+            uvLightMaterial.EnableKeyword("_EMISSION");
+            uvLightMaterial.globalIlluminationFlags = MaterialGlobalIlluminationFlags.None;
+            pointLight.SetActive(true);
+        }, 1f));
     }
 
 
+
+    IEnumerator DoWithDelay(Action action, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        action?.Invoke();
+    }
 
 }
