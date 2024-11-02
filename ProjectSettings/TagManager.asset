@@ -6,6 +6,12 @@ TagManager:
   tags:
   - GarbageCollector
   - Bowl
+  - QDSUISecondaryButton
+  - QDSUIPrimaryButton
+  - QDSUISharedThemeColor
+  - QDSUIAccentColor
+  - QDSUIIcon
+  - Frame
   layers:
   - Default
   - TransparentFX
