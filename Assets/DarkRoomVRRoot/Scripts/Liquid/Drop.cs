@@ -11,6 +11,11 @@ public class Drop : MonoBehaviour
             other.GetComponentInParent<Bowl>().AddLiquid();
             Destroy(gameObject);
         }
+        else if (other.gameObject.tag == "Tray")
+        {
+            other.GetComponentInParent<Tray>().AddLiquid();
+            Destroy(gameObject);
+        }
         else if (other.gameObject.tag == "GarbageCollector")
             Destroy(gameObject);
 

@@ -12,6 +12,7 @@ TagManager:
   - QDSUIAccentColor
   - QDSUIIcon
   - Frame
+  - Tray
   layers:
   - Default
   - TransparentFX

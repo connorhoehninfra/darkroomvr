@@ -7,13 +7,15 @@ using DG.Tweening;
 public class Paper : MonoBehaviour
 {
     [SerializeField] private Transform frame;
-    [SerializeField] private Transform target;
+    [SerializeField] private Transform tray;
     [SerializeField] private Grabbable grabbable;
     [SerializeField] private Rigidbody rigidBody;
     [SerializeField] private Collider myCollider;
     [SerializeField] private float threshold;
 
-    private bool isGrabbed = false, doOnce = true;
+    private bool isGrabbed = false;
+    private bool doOnceCheckDistanceToFrame = true;
+    private bool doOnceCheckDistanceToTray = true;
     private bool isBeingProcessed = false;
 
 
@@ -22,17 +24,48 @@ public class Paper : MonoBehaviour
     private void Update()
     {
         if (!isGrabbed) return;
-        if (!doOnce) return;
-        if (Vector3.Distance(target.position, transform.position) > threshold) return;
-
-        isBeingProcessed = true;
-        doOnce = false;
-        grabbable.enabled = false;
-        rigidBody.isKinematic = true;
-        myCollider.enabled = false;
-        transform.parent = target;
-        transform.DOMove(target.position, 2f);
-        transform.DORotate(target.eulerAngles, 2f);
+        if (doOnceCheckDistanceToFrame)
+        {
+            if (Vector3.Distance(frame.position, transform.position) <= threshold)
+            {
+                isBeingProcessed = true;
+                doOnceCheckDistanceToFrame = false;
+                grabbable.enabled = false;
+                rigidBody.isKinematic = true;
+                myCollider.enabled = false;
+                transform.parent = frame;
+                transform.DOMove(frame.position, 2f);
+                transform.DORotate(frame.eulerAngles, 2f).OnComplete(() =>
+                {
+                    isBeingProcessed = false;
+                    grabbable.enabled = true;
+                    // rigidBody.isKinematic = false;
+                    myCollider.enabled = true;
+                    // transform.parent = null;
+                });
+            }
+        }
+        if (doOnceCheckDistanceToTray)
+        {
+            if (Vector3.Distance(tray.position, transform.position) <= threshold)
+            {
+                isBeingProcessed = true;
+                doOnceCheckDistanceToTray = false;
+                grabbable.enabled = false;
+                rigidBody.isKinematic = true;
+                myCollider.enabled = false;
+                // transform.parent = tray;
+                transform.DOMove(tray.position, 2f);
+                transform.DORotate(tray.eulerAngles, 2f).OnComplete(() =>
+                {
+                    isBeingProcessed = false;
+                    grabbable.enabled = true;
+                    // rigidBody.isKinematic = false;
+                    myCollider.enabled = true;
+                    // transform.parent = null;
+                });
+            }
+        }
 
     }
 
@@ -40,6 +73,8 @@ public class Paper : MonoBehaviour
     public void UserGrabbedPaper(bool value)
     {
         isGrabbed = value;
+        if (value) transform.parent = null;
+
     }
 
 

@@ -6,7 +6,7 @@ using System.Collections;
 /// </summary>
 namespace LiquidVolumeFX
 {
-	public class SpillController : MonoBehaviour
+	public class SpillHandler : MonoBehaviour
 	{
 
 		public GameObject spill;
@@ -30,18 +30,6 @@ namespace LiquidVolumeFX
 			}
 		}
 
-		void Update()
-		{
-			const float rotationSpeed = 10f;
-			if (Input.GetKey(KeyCode.LeftArrow))
-			{
-				transform.Rotate(Vector3.forward * Time.deltaTime * rotationSpeed);
-			}
-			if (Input.GetKey(KeyCode.RightArrow))
-			{
-				transform.Rotate(-Vector3.forward * Time.deltaTime * rotationSpeed);
-			}
-		}
 
 
 		void FixedUpdate()
@@ -60,17 +48,11 @@ namespace LiquidVolumeFX
 					Rigidbody rb = oneSpill.GetComponent<Rigidbody>();
 					rb.transform.position = spillPos + Random.insideUnitSphere * 0.01f;
 					rb.AddForce(new Vector3(Random.value - 0.5f, Random.value * 0.1f - 0.2f, Random.value - 0.5f));
-					StartCoroutine(DestroySpill(oneSpill));
 				}
 				lv.level -= spillAmount / 10f + 0.001f;
 			}
 		}
 
 
-		IEnumerator DestroySpill(GameObject spill)
-		{
-			yield return new WaitForSeconds(1f);
-			Destroy(spill);
-		}
 	}
 }

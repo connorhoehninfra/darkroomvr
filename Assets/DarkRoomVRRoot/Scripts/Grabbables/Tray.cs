@@ -21,7 +21,7 @@ public class Tray : MonoBehaviour
         if (lv.level >= totalFillThreshold) return;
 
         lv.alpha = 1f;
-        lv.level += 0.05f;
+        lv.level += 0.0001f;
     }
 
 
