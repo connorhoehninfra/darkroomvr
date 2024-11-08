@@ -6,6 +6,7 @@ using DG.Tweening;
 
 public class Paper : MonoBehaviour
 {
+    [SerializeField] SpriteRenderer photoImage;
     [SerializeField] private Transform frame;
     [SerializeField] private Transform tray;
     [SerializeField] private Grabbable grabbable;
@@ -77,5 +78,10 @@ public class Paper : MonoBehaviour
 
     }
 
+
+    public void ImageFadeIn()
+    {
+        photoImage.DOFade(1f, 5f);
+    }
 
 }
