@@ -31,7 +31,7 @@ public class Tray : MonoBehaviour
         if (!notifyPaperOnce) return;
 
         //Begin fading the image in when the liquid hits the tray
-        FindAnyObjectByType<Paper>().ImageFadeIn();
+        FindAnyObjectByType<Paper>().ImageFadeIn(0.5f);
         notifyPaperOnce = false;
 
     }
