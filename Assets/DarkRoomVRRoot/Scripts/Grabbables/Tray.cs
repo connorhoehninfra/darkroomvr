@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using LiquidVolumeFX;
-
+using DG.Tweening;
 public class Tray : MonoBehaviour
 {
     [SerializeField] private LiquidVolume lv;
     [SerializeField] private float totalFillThreshold;
     List<Color> liquidColours;
     bool notifyPaperOnce = true;
+    public int TrayIndex = -1;
 
     void Start()
     {
@@ -36,5 +37,10 @@ public class Tray : MonoBehaviour
 
     }
 
-
+    public void PaperPlaced()
+    {
+        Color targetColor = Color.yellow;
+        targetColor.a = 0.1f;
+        DOTween.To(() => lv.liquidColor1, x => lv.liquidColor1 = x, targetColor, 2f).SetOptions(false);
+    }
 }

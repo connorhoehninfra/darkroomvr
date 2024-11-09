@@ -16,6 +16,7 @@ public class Paper : MonoBehaviour
 
     private bool isGrabbed = false;
     private bool doOnceCheckDistanceToFrame = true;
+    private bool doOnceMakeImageAppearCompletely = true;
     private bool isBeingProcessed = false;
     float coolDownTime = 2f;
 
@@ -64,5 +65,20 @@ public class Paper : MonoBehaviour
         photoImage.DOFade(value, 5f);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!doOnceMakeImageAppearCompletely) return;
+        if (other.tag != "Tray") return;
 
+        other.TryGetComponent<Tray>(out var tray);
+
+        if (tray)
+        {
+            if (tray.TrayIndex == 1)
+            {
+                photoImage.DOFade(1f, 2f).OnComplete(() => tray.PaperPlaced());
+                doOnceMakeImageAppearCompletely = false;
+            }
+        }
+    }
 }
