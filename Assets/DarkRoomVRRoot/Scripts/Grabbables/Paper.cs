@@ -38,10 +38,7 @@ public class Paper : MonoBehaviour
         {
             isBeingProcessed = false;
             grabbable.enabled = true;
-            // rigidBody.isKinematic = false;
-            // transform.parent = null;
             myCollider.enabled = true;
-
         });
 
 

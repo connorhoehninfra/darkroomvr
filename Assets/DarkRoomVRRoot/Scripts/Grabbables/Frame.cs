@@ -32,7 +32,14 @@ public class Frame : MonoBehaviour
         rigidBody.isKinematic = true;
         myCollider.enabled = false;
         transform.DOMove(uvBoxTarget.position, 2f);
-        transform.DORotate(uvBoxTarget.eulerAngles, 2f);
+        transform.DORotate(uvBoxTarget.eulerAngles, 2f).OnComplete(() =>
+        {
+            isBeingProcessed = false;
+            grabbable.enabled = true;
+            myCollider.enabled = true;
+
+        });
+
     }
 
     public void UserGrabbedBox(bool value)
