@@ -31,10 +31,10 @@ public class DropperCap : MonoBehaviour
         isGrabbed = value;
 
         if (isGrabbed)
-        {
             transform.parent = null;
+        else
             rigidbody.isKinematic = false;
-        }
+
     }
 
 
