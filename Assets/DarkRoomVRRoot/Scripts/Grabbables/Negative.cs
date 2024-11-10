@@ -7,7 +7,6 @@ using DG.Tweening;
 public class Negative : MonoBehaviour
 {
     [SerializeField] private Transform frame;
-    [SerializeField] private Transform target;
     [SerializeField] private Grabbable grabbable;
     [SerializeField] private Rigidbody rigidBody;
     [SerializeField] private Collider myCollider;
@@ -23,16 +22,19 @@ public class Negative : MonoBehaviour
     {
         if (!isGrabbed) return;
         if (!doOnce) return;
-        if (Vector3.Distance(target.position, transform.position) > threshold) return;
+        if (Vector3.Distance(frame.position, transform.position) > threshold) return;
 
         isBeingProcessed = true;
         doOnce = false;
         grabbable.enabled = false;
         rigidBody.isKinematic = true;
         myCollider.enabled = false;
-        transform.parent = target;
-        transform.DOMove(target.position, 2f);
-        transform.DORotate(target.eulerAngles, 2f);
+        transform.parent = frame;
+        transform.DOMove(frame.position, 2f);
+        transform.DORotate(frame.eulerAngles, 2f).OnComplete(() =>
+        {
+            isBeingProcessed = false;
+        });
 
     }
 
