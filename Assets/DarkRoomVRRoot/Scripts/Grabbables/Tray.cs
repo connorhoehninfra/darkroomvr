@@ -15,12 +15,20 @@ public class Tray : MonoBehaviour
     {
         liquidColours = new List<Color>();
         if (!lv) lv = GetComponentInChildren<LiquidVolume>();
-        lv.level = 0f;
-        lv.alpha = 0f;
+
+
+        //Reset for the first tray
+        if (TrayIndex == 0)
+        {
+            lv.level = 0f;
+            lv.alpha = 0f;
+        }
     }
 
     public void AddLiquid()
     {
+        //Add liquid only for the first tray
+        if (TrayIndex != 0) return;
 
         if (lv.level >= totalFillThreshold) return;
 
@@ -40,7 +48,7 @@ public class Tray : MonoBehaviour
     public void PaperPlaced()
     {
         Color targetColor = Color.yellow;
-        targetColor.a = 0.1f;
+        targetColor.a = 0.3f;
         DOTween.To(() => lv.liquidColor1, x => lv.liquidColor1 = x, targetColor, 2f).SetOptions(false);
     }
 }
