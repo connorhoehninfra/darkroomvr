@@ -19,6 +19,12 @@ public class Outline : MonoBehaviour
         MyRectTransform.sizeDelta = ChildRectTransform.sizeDelta;
     }
 
+    // private void Update()
+    // {
+    //     MyRectTransform.sizeDelta = ChildRectTransform.sizeDelta + ChildRectTransform.sizeDelta / 20f;
+
+    // }
+
 
     public void OnHover(bool value)
     {
@@ -28,9 +34,9 @@ public class Outline : MonoBehaviour
 
         //If we are hovering, add border effect else scale down to target scale
         if (value)
-            MyRectTransform.DOSizeDelta(ChildRectTransform.sizeDelta + ChildRectTransform.sizeDelta / 20f, 2f);
+            MyRectTransform.DOSizeDelta(ChildRectTransform.sizeDelta + ChildRectTransform.sizeDelta / 40f, 1f);
         else
-            MyRectTransform.DOSizeDelta(ChildRectTransform.sizeDelta, 2f);
+            MyRectTransform.DOSizeDelta(ChildRectTransform.sizeDelta, 1f);
 
     }
 }
