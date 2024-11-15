@@ -3843,7 +3843,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_CamvasOffsetDistance: 3
   m_camvasMoveSpeed: 0.5
-  dottweenlimit: 0.8
+  m_dotTweenThreshold: 0.8
 --- !u!224 &1366178002 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3315583781552747177, guid: 5292db714b0f87045a7dfd9be93b1be5, type: 3}

@@ -6,9 +6,9 @@ using UnityEngine;
 public class TweenCamvas : MonoBehaviour
 {
     Transform myCamera;
-    [SerializeField] private float m_CamvasOffsetDistance = 1f;
-    [SerializeField] private float m_camvasMoveSpeed = 1f;
-    public float dottweenlimit = 1f;
+    [SerializeField] private float m_CamvasOffsetDistance;
+    [SerializeField] private float m_camvasMoveSpeed;
+    [SerializeField] private float m_dotTweenThreshold;
 
     float m_height;
     void Start()
@@ -43,7 +43,7 @@ public class TweenCamvas : MonoBehaviour
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime);
 
 
-        if (Vector3.Dot(myCamera.transform.forward, transform.forward) > dottweenlimit) return;
+        if (Vector3.Dot(myCamera.transform.forward, transform.forward) > m_dotTweenThreshold) return;
 
         // Position
         var cameraOffset = myCamera.transform.forward * m_CamvasOffsetDistance;
