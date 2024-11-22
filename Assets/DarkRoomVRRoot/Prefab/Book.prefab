@@ -2416,8 +2416,8 @@ SkinnedMeshRenderer:
   m_Materials:
   - {fileID: 2100000, guid: 13d8a7cc0299e7044b3f718384d32c04, type: 2}
   - {fileID: 2100000, guid: f4c4998190025e74c9bdb4959ac0e559, type: 2}
-  - {fileID: 2100000, guid: ae97e4ccae572475eae69459e0e70289, type: 2}
   - {fileID: 2100000, guid: d7b82d01dcca34f9186efaa4fe4b06a1, type: 2}
+  - {fileID: 2100000, guid: ae97e4ccae572475eae69459e0e70289, type: 2}
   - {fileID: 2100000, guid: bdb38526121b86447b50668e29efe201, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -3560,8 +3560,8 @@ MeshRenderer:
   m_Materials:
   - {fileID: 2100000, guid: 13d8a7cc0299e7044b3f718384d32c04, type: 2}
   - {fileID: 2100000, guid: f4c4998190025e74c9bdb4959ac0e559, type: 2}
-  - {fileID: 2100000, guid: ae97e4ccae572475eae69459e0e70289, type: 2}
   - {fileID: 2100000, guid: d7b82d01dcca34f9186efaa4fe4b06a1, type: 2}
+  - {fileID: 2100000, guid: ae97e4ccae572475eae69459e0e70289, type: 2}
   - {fileID: 2100000, guid: bdb38526121b86447b50668e29efe201, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -4151,8 +4151,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 4.757375, z: 1}
+  m_Center: {x: 0, y: 1.8786877, z: 0}
 --- !u!114 &229205033429328983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4262,8 +4262,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 13d8a7cc0299e7044b3f718384d32c04, type: 2}
   - {fileID: 2100000, guid: f4c4998190025e74c9bdb4959ac0e559, type: 2}
   - {fileID: 2100000, guid: bdb38526121b86447b50668e29efe201, type: 2}
-  - {fileID: 2100000, guid: d7b82d01dcca34f9186efaa4fe4b06a1, type: 2}
   - {fileID: 2100000, guid: ae97e4ccae572475eae69459e0e70289, type: 2}
+  - {fileID: 2100000, guid: d7b82d01dcca34f9186efaa4fe4b06a1, type: 2}
   materialMappings:
   - materialType: 0
     mappings:
@@ -4345,8 +4345,8 @@ MonoBehaviour:
   - materialType: 7
     mappings: []
   pageData:
-  - material: {fileID: 2100000, guid: d7b82d01dcca34f9186efaa4fe4b06a1, type: 2}
   - material: {fileID: 2100000, guid: ae97e4ccae572475eae69459e0e70289, type: 2}
+  - material: {fileID: 2100000, guid: d7b82d01dcca34f9186efaa4fe4b06a1, type: 2}
   - material: {fileID: 2100000, guid: 35df93bd0410f44bbba3d954a5a241ba, type: 2}
   - material: {fileID: 2100000, guid: 437691196606b4c12ac3783169c237d9, type: 2}
   - material: {fileID: 2100000, guid: 607a1c9845bf54d33bc72a70323f9a81, type: 2}
