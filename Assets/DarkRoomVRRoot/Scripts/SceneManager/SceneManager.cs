@@ -13,7 +13,7 @@ public class CustomSceneManager : MonoBehaviour
 
     private void Start()
     {
-        var tablePosition = Camera.main.transform.position + Camera.main.transform.forward * 0.8f;
+        var tablePosition = Camera.main.transform.position + Camera.main.transform.forward * 0.2f;
         tablePosition.y = 0.7f;
         table.transform.position = tablePosition;
     }

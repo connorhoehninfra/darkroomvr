@@ -36,15 +36,14 @@ namespace echo17.EndlessBook.PageHandler
 		public float controllerPos;
 		public LayerMask BooklayerMask;
 		GameObject handInUse;
-		float xStartPoint, xEndPoint;
 
+		public float xLeft, xRight, xCurrent;
 
 
 		private void Start()
 		{
 			boxCollider = gameObject.GetComponent<BoxCollider>();
-			xStartPoint = transform.position.x - (transform.localScale.x / 2f);
-			xEndPoint = transform.position.x + (transform.localScale.x / 2f);
+
 		}
 
 
@@ -96,6 +95,9 @@ namespace echo17.EndlessBook.PageHandler
 		{
 
 			RaycastHit hit;
+			float xStartPoint = xLeft = transform.position.x - (transform.localScale.x / 2f);
+			float xEndPoint = xRight = transform.position.x + (transform.localScale.x / 2f);
+
 
 			// cast a ray and see where it hits
 			if (Physics.Raycast(handInUse.transform.position, Vector3.down, out hit, 100f, BooklayerMask))
@@ -104,8 +106,12 @@ namespace echo17.EndlessBook.PageHandler
 			var pos = handInUse.transform.position;
 			pos.y = transform.position.y;
 
-			// if we didn't hit the collider, then return bounds
-			return pos.x < xStartPoint ? 0 : 1;
+			//Check if the controller is still in the x-axis range of the book 
+			if (pos.x > xStartPoint && pos.x < xEndPoint)
+				return Mathf.Clamp((pos.x - xStartPoint) / (xEndPoint - xStartPoint), 0f, 1f);
+			else
+				// if we didn't hit the collider, then return bounds
+				return pos.x < transform.position.x ? 0 : 1;
 		}
 
 		/// <summary>
