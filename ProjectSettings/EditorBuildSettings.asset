@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/DarkRoomVRRoot/Scene/HandMenu/HandMenuUIComponents.unity
+    guid: d60e432bb23c54e45b755b3dd3d2b0b3
+  - enabled: 1
     path: Assets/DarkRoomVRRoot/Scene/MainGalleryScene/MainGalleryScene.unity
     guid: c63e6266ce3af47e29a34a2293c41a41
   - enabled: 1
